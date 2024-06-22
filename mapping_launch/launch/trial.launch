@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Transformation Configuration ... Setting Up the Relationships Between Coordinate Frames -->
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 30" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.55 0 0.44 0 0 0 base_link laser 30" />
+  
+  <!-- Odometry Info Publisher -->
+  <!-- Used for Broadcast tf Transformation from /odom to /base_link -->
+  <node pkg="odometry_publisher" type="odometry_pub.py" name="odometry_pub" output="screen">
+  </node>
+
+</launch>
